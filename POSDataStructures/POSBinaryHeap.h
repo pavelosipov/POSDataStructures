@@ -38,7 +38,13 @@ typedef NS_ENUM(NSInteger, POSBinaryHeapOrdering) {
 - (void)removeTopObject;
 // Empties the heap of all its elements.
 - (void)removeAllObjects;
-// Removes specified object from the heap. If the heap is empty, the method has no effect.
+// Removes specified object from the heap.
+// Object search is based on on the basis of an object’s response to the isEqual: message.
+// If the heap is empty, the method has no effect.
 - (void)removeObject:(id)object;
+// Removes specified object from the heap.
+// Object search is based on on the basis of an objects' addresses equality.
+// If the heap is empty, the method has no effect.
+- (void)removeObjectIdenticalTo:(id)object;
 
 @end

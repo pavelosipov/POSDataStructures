@@ -111,6 +111,15 @@ NS_INLINE NSUInteger  RightIndex(NSUInteger index) { return (index << 1) + 2; }
   }
 }
 
+- (void)removeObjectIdenticalTo:(id)object {
+  const NSUInteger index = [_objects indexOfObjectIdenticalTo:object];
+  if (NSNotFound != index) {
+    [_objects exchangeObjectAtIndex:index withObjectAtIndex:[_objects count] - 1];
+    [_objects removeLastObject];
+    [self pos_heapifyObjectAtIndex:index];
+  }
+}
+
 #pragma mark - Private
 
 - (void)pos_heapifyObjectAtIndex:(NSUInteger)i {
