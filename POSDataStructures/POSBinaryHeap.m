@@ -8,14 +8,6 @@
 
 #import "POSBinaryHeap.h"
 
-#pragma mark - POSBinaryHeap helpers
-
-NS_INLINE NSUInteger ParentIndex(NSUInteger index) { return (index - 1) >> 1; }
-NS_INLINE NSUInteger   LeftIndex(NSUInteger index) { return (index << 1) + 1; }
-NS_INLINE NSUInteger  RightIndex(NSUInteger index) { return (index << 1) + 2; }
-
-#pragma mark - POSBinaryHeap
-
 @implementation POSBinaryHeap {
   NSComparator _comparator;
   NSMutableArray *_objects;
@@ -67,7 +59,7 @@ NS_INLINE NSUInteger  RightIndex(NSUInteger index) { return (index << 1) + 2; }
   [_objects addObject:object];
   NSUInteger index = [_objects count] - 1;
   while (index > 0) {
-    const NSUInteger parentIndex = ParentIndex(index);
+    const NSUInteger parentIndex = (index - 1) >> 1;
     if (NSOrderedAscending != _comparator(_objects[index], _objects[parentIndex])) {
       break;
     }
@@ -120,23 +112,23 @@ NS_INLINE NSUInteger  RightIndex(NSUInteger index) { return (index << 1) + 2; }
   [self pos_heapifyObjectAtIndex:index];
 }
 
-- (void)pos_heapifyObjectAtIndex:(NSUInteger)i {
-  NSUInteger iMin = i;
+- (void)pos_heapifyObjectAtIndex:(NSUInteger)index {
+  NSUInteger minIndex = index;
   const NSUInteger count = [_objects count];
   while (true) {
-    const NSUInteger l = LeftIndex(i);
-    const NSUInteger r = RightIndex(i);
-    if (l < count && NSOrderedAscending == _comparator(_objects[l], _objects[i])) {
-      iMin = l;
+    const NSUInteger leftIndex = (index << 1) + 1;;
+    const NSUInteger rightIndex = (index << 1) + 2;
+    if (leftIndex < count && NSOrderedAscending == _comparator(_objects[leftIndex], _objects[index])) {
+      minIndex = leftIndex;
     }
-    if (r < count && NSOrderedAscending == _comparator(_objects[r], _objects[iMin])) {
-      iMin = r;
+    if (rightIndex < count && NSOrderedAscending == _comparator(_objects[rightIndex], _objects[minIndex])) {
+      minIndex = rightIndex;
     }
-    if (i == iMin) {
+    if (index == minIndex) {
       break;
     }
-    [_objects exchangeObjectAtIndex:i withObjectAtIndex:iMin];
-    i = iMin;
+    [_objects exchangeObjectAtIndex:index withObjectAtIndex:minIndex];
+    index = minIndex;
   }
 }
 
