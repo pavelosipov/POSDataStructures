@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'POSDataStructures' target in the 'POSDataStructures' project
+//
+
+#ifdef __OBJC__
+  #import <Foundation/Foundation.h>
+#endif
