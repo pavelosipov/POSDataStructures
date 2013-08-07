@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, POSBinaryHeapOrdering) {
-  // On the top of the heap will be always the object with the smallest value.
+  // The smallest object is on the top of the heap.
   POSBinaryHeapOrderingAscending,
-  // On the top of the heap will be always the object with the biggest value.
+  // The biggest object is on the top of the heap.
   POSBinaryHeapOrderingDescending
 };
 
@@ -24,27 +24,23 @@ typedef NS_ENUM(NSInteger, POSBinaryHeapOrdering) {
 // The designated initializer.
 - (id)initWithOrderingType:(POSBinaryHeapOrdering)ordering comparator:(NSComparator)comparator;
 
-// Returns the object on the top of the heap. If the heap is empty, returns nil.
+// Returns the object which is on the top of the heap. If the heap is empty, returns nil.
 - (id)topObject;
 
-// Inserts a given object at the appropriate position of the heap.
+// Inserts a given object in the heap.
 - (void)addObject:(id)object;
-// Inserts objects contained in another given array to the appropriate positions of the heap.
+// Inserts objects contained in another given array in the heap.
 - (void)addObjectsFromArray:(NSArray *)objects;
 
-// Returns the object on the top of the heap and then removes it. If the heap is empty, returns nil.
+// Returns the object on the top of the heap and then removes it. Returns nil if the heap is empty.
 - (id)popTopObject;
-// Removes top object from the heap. If the heap is empty, the method has no effect.
+// Removes top object. If the heap is empty, the method has no effect.
 - (void)removeTopObject;
 // Empties the heap of all its elements.
 - (void)removeAllObjects;
-// Removes specified object from the heap.
-// Object search is based on on the basis of an object’s response to the isEqual: message.
-// If the heap is empty, the method has no effect.
+// Removes object which is equal to the given object. If the heap is empty, the method has no effect.
 - (void)removeObject:(id)object;
-// Removes specified object from the heap.
-// Object search is based on on the basis of an objects' addresses equality.
-// If the heap is empty, the method has no effect.
+// Removes object with the same address as the given object address. If the heap is empty, the method has no effect.
 - (void)removeObjectIdenticalTo:(id)object;
 
 @end
