@@ -36,7 +36,7 @@ NS_INLINE NSUInteger  RightIndex(NSUInteger index) { return (index << 1) + 2; }
   if (self = [super init]) {
     NSComparator comparatorCopy = [comparator copy];
     if (ordering == POSBinaryHeapOrderingAscending) {
-	    _comparator = comparatorCopy;
+      _comparator = comparatorCopy;
     } else {
       _comparator = [^(id l, id r) {
         NSComparisonResult result = comparatorCopy(l, r);
@@ -58,7 +58,7 @@ NS_INLINE NSUInteger  RightIndex(NSUInteger index) { return (index << 1) + 2; }
 
 - (id)topObject {
   if ([_objects count] > 0) {
-  	return [_objects objectAtIndex:0];
+    return [_objects objectAtIndex:0];
   }
   return nil;
 }
