@@ -89,13 +89,9 @@ NS_INLINE NSUInteger  RightIndex(NSUInteger index) { return (index << 1) + 2; }
 }
 
 - (void)removeTopObject {
-  const NSUInteger count = [_objects count];
-  if (count == 0) {
-    return;
+  if ([_objects count] > 0) {
+    [self pos_removeObjectAtIndex:0];
   }
-  [_objects exchangeObjectAtIndex:0 withObjectAtIndex:count - 1];
-  [_objects removeLastObject];
-  [self pos_heapifyObjectAtIndex:0];
 }
 
 - (void)removeAllObjects {
@@ -105,22 +101,24 @@ NS_INLINE NSUInteger  RightIndex(NSUInteger index) { return (index << 1) + 2; }
 - (void)removeObject:(id)object {
   const NSUInteger index = [_objects indexOfObject:object];
   if (NSNotFound != index) {
-    [_objects exchangeObjectAtIndex:index withObjectAtIndex:[_objects count] - 1];
-    [_objects removeLastObject];
-    [self pos_heapifyObjectAtIndex:index];
+    [self pos_removeObjectAtIndex:index];
   }
 }
 
 - (void)removeObjectIdenticalTo:(id)object {
   const NSUInteger index = [_objects indexOfObjectIdenticalTo:object];
   if (NSNotFound != index) {
-    [_objects exchangeObjectAtIndex:index withObjectAtIndex:[_objects count] - 1];
-    [_objects removeLastObject];
-    [self pos_heapifyObjectAtIndex:index];
+    [self pos_removeObjectAtIndex:index];
   }
 }
 
 #pragma mark - Private
+
+- (void)pos_removeObjectAtIndex:(NSUInteger)index {
+  [_objects exchangeObjectAtIndex:index withObjectAtIndex:[_objects count] - 1];
+  [_objects removeLastObject];
+  [self pos_heapifyObjectAtIndex:index];
+}
 
 - (void)pos_heapifyObjectAtIndex:(NSUInteger)i {
   NSUInteger iMin = i;
