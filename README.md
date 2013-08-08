@@ -1,18 +1,18 @@
 <h1>Data Structures Collection
 
-Here will be data structures which are completely absent in iOS SDK
-or their functionality is insufficient. All data structures have been
-tested in production code of iOS 5.0 applications and use ARC memory
-management model.
+Repository contains data structures which are completely absent in iOS
+SDK or its implementation their is insufficient. All of them were tested
+in production code of iOS 5.0 applications with ARC memory management
+model.
 
 <h2>POSBinaryHeap</h2>
 Binary Heap is implemented over `NSMutableArray`. There is `CFBinaryHeapRef`
-in Core Foundation framework but it has a very poor interface for removing
-objects from it. The only possible options are `CFBinaryHeapRemoveAllValues`
-and `CFBinaryHeapRemoveMinimumValue`. So here are two reasons to create that
+in Core Foundation framework. But `CFBinaryHeapRef` has a very poor interface
+for removing objects from it. The only possible options are `CFBinaryHeapRemoveAllValues`
+and `CFBinaryHeapRemoveMinimumValue`. So there are two reasons to create my
 Binary Heap:
 
-* Make possible to remove from the heap equal and identical objects.
+* Make possible to remove equal and identical objects from the heap.
 * Make Objective-C ARC compatible implementation instead of plain C.
 
 <h3>Example</h3>
