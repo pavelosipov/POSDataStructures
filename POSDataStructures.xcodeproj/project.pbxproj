@@ -53,6 +53,7 @@
 		21700D1C17B23CEC00B22CD6 /* POSBinaryHeap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POSBinaryHeap.m; sourceTree = "<group>"; };
 		21700D1F17B2422400B22CD6 /* POSBinaryHeapTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POSBinaryHeapTests.h; sourceTree = "<group>"; };
 		21700D2017B2422400B22CD6 /* POSBinaryHeapTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POSBinaryHeapTests.m; sourceTree = "<group>"; };
+		219AA11F18D056D6000B68AB /* POSDataStructures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POSDataStructures.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 		21700CF517B2389400B22CD6 /* POSDataStructures */ = {
 			isa = PBXGroup;
 			children = (
+				219AA11F18D056D6000B68AB /* POSDataStructures.h */,
 				21700D1B17B23CEC00B22CD6 /* POSBinaryHeap.h */,
 				21700D1C17B23CEC00B22CD6 /* POSBinaryHeap.m */,
 				21700CF617B2389400B22CD6 /* Supporting Files */,
@@ -403,6 +405,7 @@
 				21700D1717B2389400B22CD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21700D1817B2389400B22CD6 /* Build configuration list for PBXNativeTarget "POSDataStructuresTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +414,7 @@
 				21700D1A17B2389400B22CD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

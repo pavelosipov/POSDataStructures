@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, POSBinaryHeapOrdering) {
-  // The smallest object is on the top of the heap.
-  POSBinaryHeapOrderingAscending,
-  // The biggest object is on the top of the heap.
-  POSBinaryHeapOrderingDescending
+    // The smallest object is on the top of the heap.
+    POSBinaryHeapOrderingAscending,
+    // The biggest object is on the top of the heap.
+    POSBinaryHeapOrderingDescending
 };
 
 @interface POSBinaryHeap : NSObject
