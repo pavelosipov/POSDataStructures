@@ -1,11 +1,13 @@
-<h1>Data Structures Collection
+Data Structures Collection
+==========================
+[![Version](http://img.shields.io/cocoapods/v/POSDataStructures.svg)](http://cocoapods.org/?q=POSDataStructures)
 
 Repository contains data structures which are completely absent in iOS
 SDK or its implementation their is insufficient. All of them were tested
 in production code of iOS 5.0 applications with ARC memory management
 model.
 
-<h2>POSBinaryHeap</h2>
+## POSBinaryHeap
 Binary Heap is implemented over `NSMutableArray`. There is `CFBinaryHeapRef`
 in Core Foundation framework. But `CFBinaryHeapRef` has a very poor interface
 for removing objects from it. The only possible options are `CFBinaryHeapRemoveAllValues`
@@ -15,7 +17,7 @@ Binary Heap:
 * Make possible to remove equal and identical objects from the heap.
 * Make Objective-C ARC compatible implementation instead of plain C.
 
-<h3>Example</h3>
+### Example
 Ascending heap sort implementation with `POSBinaryHeap`
 
 ```objc
