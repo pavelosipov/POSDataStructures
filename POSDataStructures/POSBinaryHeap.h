@@ -20,9 +20,10 @@ typedef NS_ENUM(NSInteger, POSBinaryHeapOrdering) {
 @property (nonatomic, readonly) NSUInteger count;
 
 // Raises NSInternalInconsistencyException exception.
-- (instancetype)init;
+- (instancetype)init NS_UNAVAILABLE;
 // The designated initializer.
-- (instancetype)initWithOrderingType:(POSBinaryHeapOrdering)ordering comparator:(NSComparator)comparator;
+- (instancetype)initWithOrderingType:(POSBinaryHeapOrdering)ordering
+                          comparator:(NSComparator)comparator NS_DESIGNATED_INITIALIZER;
 
 // Returns the object which is on the top of the heap. If the heap is empty, returns nil.
 - (ItemType)topObject;
