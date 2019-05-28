@@ -15,32 +15,32 @@ typedef NS_ENUM(NSInteger, POSBinaryHeapOrdering) {
     POSBinaryHeapOrderingDescending
 };
 
-@interface POSBinaryHeap : NSObject
+@interface POSBinaryHeap <__covariant ItemType> : NSObject
 
 @property (nonatomic, readonly) NSUInteger count;
 
-// Raises NSInternalInconsistencyException exception.
-- (id)init;
-// The designated initializer.
-- (id)initWithOrderingType:(POSBinaryHeapOrdering)ordering comparator:(NSComparator)comparator;
+- (instancetype)init NS_UNAVAILABLE;
 
-// Returns the object which is on the top of the heap. If the heap is empty, returns nil.
-- (id)topObject;
+- (instancetype)initWithOrderingType:(POSBinaryHeapOrdering)ordering
+                          comparator:(NSComparator)comparator NS_DESIGNATED_INITIALIZER;
 
-// Inserts a given object in the heap.
-- (void)addObject:(id)object;
-// Inserts objects contained in another given array in the heap.
-- (void)addObjectsFromArray:(NSArray *)objects;
+/// Returns the object which is on the top of the heap. If the heap is empty, returns nil.
+- (ItemType)topObject;
 
-// Returns the object on the top of the heap and then removes it. Returns nil if the heap is empty.
-- (id)popTopObject;
-// Removes top object. If the heap is empty, the method has no effect.
+/// Inserts a given object in the heap.
+- (void)addObject:(ItemType)object;
+/// Inserts objects contained in another given array in the heap.
+- (void)addObjectsFromArray:(NSArray<ItemType> *)objects;
+
+/// Returns the object on the top of the heap and then removes it. Returns nil if the heap is empty.
+- (ItemType)popTopObject;
+/// Removes top object. If the heap is empty, the method has no effect.
 - (void)removeTopObject;
-// Empties the heap of all its elements.
+/// Empties the heap of all its elements.
 - (void)removeAllObjects;
-// Removes object which is equal to the given object. If the heap is empty, the method has no effect.
-- (void)removeObject:(id)object;
-// Removes object with the same address as the given object address. If the heap is empty, the method has no effect.
-- (void)removeObjectIdenticalTo:(id)object;
+/// Removes object which is equal to the given object. If the heap is empty, the method has no effect.
+- (void)removeObject:(ItemType)object;
+/// Removes object with the same address as the given object address. If the heap is empty, the method has no effect.
+- (void)removeObjectIdenticalTo:(ItemType)object;
 
 @end
