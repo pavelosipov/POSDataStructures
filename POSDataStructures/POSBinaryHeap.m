@@ -15,14 +15,6 @@
 
 @dynamic count;
 
-- (instancetype)init {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"Unexpected deadly init invokation '%@', use '%@' instead.",
-                                           NSStringFromSelector(_cmd),
-                                           NSStringFromSelector(@selector(initWithOrderingType:comparator:))]
-                                 userInfo:nil];
-}
-
 - (instancetype)initWithOrderingType:(POSBinaryHeapOrdering)ordering comparator:(NSComparator)comparator {
     NSParameterAssert(comparator);
     if (self = [super init]) {
